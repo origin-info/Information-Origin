@@ -2,7 +2,7 @@
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
 
   <title>Information Origin | أصل المعلومات</title>
   <meta name="description" content="Information Origin (أصل المعلومات) - حلول التحول الرقمي، أتمتة الإجراءات، تطوير الأنظمة والبوابات، تكامل الأنظمة (API)، وإدارة البيانات والوثائق للجهات الحكومية والمؤسسات." />
@@ -11,15 +11,12 @@
   <meta property="og:title" content="Information Origin | أصل المعلومات" />
   <meta property="og:description" content="حلول تقنية متكاملة للتحول الرقمي وأتمتة الإجراءات وتطوير الأنظمة للجهات الحكومية والمؤسسات." />
   <meta property="og:type" content="website" />
-
-  <!-- لاحقًا: بعد رفع شعارك إلى assets/logo.png يمكنك تفعيل صورة المشاركة بإضافة og:image -->
   <!-- <meta property="og:image" content="https://origin-info.github.io/Information-Origin/assets/og.png" /> -->
 
   <style>
     :root{
       --bg:#f6f8fc;
       --surface:#ffffff;
-      --surface2:#f1f5ff;
       --text:#0f172a;
       --muted:#5b647a;
       --accent:#2f7cff;
@@ -29,6 +26,7 @@
       --radius:18px;
       --max:1100px;
     }
+
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
     body{
@@ -41,25 +39,39 @@
       color:var(--text);
       line-height:1.75;
     }
+
     a{color:inherit;text-decoration:none}
+    img{max-width:100%;height:auto}
     .container{max-width:var(--max); margin:0 auto; padding:24px;}
 
-    /* NAV */
+    /* ===== NAV ===== */
     .nav{
       position:sticky; top:0; z-index:50;
       backdrop-filter: blur(10px);
       background: rgba(255,255,255,.72);
       border-bottom:1px solid var(--border);
     }
+
     .nav-inner{
-      display:flex; align-items:center; justify-content:space-between;
-      gap:12px; padding:14px 24px; max-width:var(--max); margin:0 auto;
+      max-width:var(--max);
+      margin:0 auto;
+      padding:14px 24px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
     }
-    .brand{display:flex; align-items:center; gap:10px; font-weight:800; letter-spacing:.2px;}
-    .logo{
-      width:44px; height:44px; border-radius:14px;
-      display:grid; place-items:center;
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      font-weight:900;
+      letter-spacing:.2px;
+      min-width: 220px;
     }
+
+    .logo{width:44px; height:44px; border-radius:14px; display:grid; place-items:center;}
     .logo img{
       width:44px; height:44px;
       object-fit:contain;
@@ -69,16 +81,33 @@
       box-shadow: 0 14px 30px rgba(15,23,42,.08);
       padding:6px;
     }
-    .brand small{display:block; font-weight:700; color:var(--muted); font-size:12px; margin-top:-2px}
 
-    .links{display:flex; gap:10px; align-items:center; flex-wrap:wrap}
+    .brand small{display:block; font-weight:800; color:var(--muted); font-size:12px; margin-top:-2px}
+
+    .nav-actions{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+    }
+
+    .links{
+      display:flex;
+      gap:10px;
+      align-items:center;
+      flex-wrap:wrap;
+    }
+
     .chip{
       padding:8px 12px;
       border:1px solid var(--border);
       border-radius:999px;
       color:var(--muted);
-      font-weight:800; font-size:13px;
+      font-weight:900;
+      font-size:13px;
       background: rgba(255,255,255,.55);
+      white-space: nowrap;
     }
     .chip:hover{border-color: rgba(47,124,255,.25); color:#2b3a55}
 
@@ -89,9 +118,10 @@
       border:1px solid var(--border);
       background: rgba(255,255,255,.75);
       box-shadow: 0 10px 22px rgba(15,23,42,.06);
-      font-weight:900; font-size:14px;
+      font-weight:950; font-size:14px;
       transition: transform .15s ease;
       cursor:pointer;
+      white-space: nowrap;
     }
     .btn:hover{transform: translateY(-1px);}
     .btn.primary{
@@ -100,7 +130,25 @@
       box-shadow: 0 16px 34px rgba(47,124,255,.18);
     }
 
-    /* HERO */
+    /* LANGUAGE TOGGLE */
+    .lang{display:flex; gap:8px; align-items:center;}
+    .toggle{
+      cursor:pointer;
+      padding:8px 10px;
+      border-radius:12px;
+      border:1px solid var(--border);
+      background: rgba(255,255,255,.78);
+      color: var(--muted);
+      font-weight:1000;
+      font-size:13px;
+    }
+    .toggle.active{
+      background: linear-gradient(135deg, rgba(47,124,255,.12), rgba(34,197,94,.12));
+      color: #2b3a55;
+      border-color: rgba(47,124,255,.22);
+    }
+
+    /* ===== HERO ===== */
     .hero{padding:44px 0 10px}
     .hero-grid{display:grid; grid-template-columns: 1.2fr .8fr; gap:18px; align-items:stretch;}
 
@@ -114,7 +162,7 @@
     .kicker{
       display:inline-flex; gap:8px; align-items:center;
       color: #2b3a55;
-      font-weight:900; font-size:13px;
+      font-weight:950; font-size:13px;
       border:1px solid rgba(47,124,255,.18);
       padding:6px 10px; border-radius:999px;
       background: linear-gradient(135deg, rgba(47,124,255,.10), rgba(34,197,94,.10));
@@ -131,9 +179,9 @@
       background: linear-gradient(180deg, rgba(47,124,255,.07), rgba(255,255,255,.7));
     }
     .stat b{font-size:18px}
-    .stat span{display:block; color:var(--muted); font-weight:800; font-size:13px; margin-top:3px}
+    .stat span{display:block; color:var(--muted); font-weight:900; font-size:13px; margin-top:3px}
 
-    /* SECTIONS */
+    /* ===== SECTIONS ===== */
     .section{padding:18px 0}
     .section-title{
       display:flex; align-items:baseline; justify-content:space-between; gap:14px;
@@ -167,7 +215,7 @@
       flex: 0 0 10px;
     }
 
-    /* CONTACT */
+    /* ===== CONTACT ===== */
     .contact{display:grid; grid-template-columns: 1fr 1fr; gap:14px;}
     .field{
       padding:14px;
@@ -177,7 +225,7 @@
       box-shadow: 0 10px 26px rgba(15,23,42,.05);
     }
     .field b{display:block; margin-bottom:6px}
-    .field a{color:var(--accent); font-weight:900}
+    .field a{color:var(--accent); font-weight:950}
     .muted{color:var(--muted)}
 
     .footer{
@@ -187,43 +235,6 @@
       color: var(--muted);
       font-size:13px;
       text-align:center;
-    }
-
-    /* LANGUAGE TOGGLE */
-    .lang{display:flex; gap:8px; align-items:center;}
-    .toggle{
-      cursor:pointer;
-      padding:8px 10px;
-      border-radius:12px;
-      border:1px solid var(--border);
-      background: rgba(255,255,255,.78);
-      color: var(--muted);
-      font-weight:1000;
-      font-size:13px;
-    }
-    .toggle.active{
-      background: linear-gradient(135deg, rgba(47,124,255,.12), rgba(34,197,94,.12));
-      color: #2b3a55;
-      border-color: rgba(47,124,255,.22);
-    }
-
-    /* Global language control */
-    body.is-en .lang-ar { display: none !important; }
-    body.is-en .lang-en { display: block !important; }
-
-    body.is-ar .lang-ar { display: block !important; }
-    body.is-ar .lang-en { display: none !important; }
-
-    body.is-en { direction:ltr; }
-    body.is-ar { direction:rtl; }
-
-    /* Responsive */
-    @media (max-width: 980px){
-      .hero-grid{grid-template-columns:1fr}
-      h1{font-size:34px}
-      .grid3{grid-template-columns:1fr}
-      .contact{grid-template-columns:1fr}
-      .nav-inner{padding:12px 14px}
     }
 
     /* Subtle hover */
@@ -244,9 +255,98 @@
       border:1px solid rgba(15,23,42,.10);
       background:rgba(255,255,255,.85);
       box-shadow:0 14px 30px rgba(15,23,42,.08);
-      font-weight:900;
+      font-weight:950;
       color:#2b3a55;
       z-index:80;
+    }
+
+    /* ===== Global language control (IMPORTANT) ===== */
+    body.is-en .lang-ar { display: none !important; }
+    body.is-en .lang-en { display: inline !important; }
+    body.is-en .lang-en.block { display: block !important; }
+
+    body.is-ar .lang-ar { display: inline !important; }
+    body.is-ar .lang-ar.block { display: block !important; }
+    body.is-ar .lang-en { display: none !important; }
+
+    body.is-en { direction:ltr; }
+    body.is-ar { direction:rtl; }
+
+    /* ===== Responsive ===== */
+    @media (max-width: 1024px){
+      .hero-grid{ grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 820px){
+      .container{ padding: 18px; }
+      h1{ font-size: 32px; }
+      .nav-inner{ padding: 12px 16px; }
+    }
+
+    /* Mobile header fix */
+    @media (max-width: 520px){
+      .container{ padding: 14px; }
+
+      .nav-inner{
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+      }
+
+      .brand{
+        justify-content: center;
+        text-align: center;
+        min-width: unset;
+      }
+
+      .logo img{ width: 40px; height: 40px; }
+
+      .nav-actions{
+        justify-content:center;
+        gap:10px;
+      }
+
+      .links{
+        width:100%;
+        justify-content:center;
+      }
+
+      /* اجعل زر لينكدإن + اللغة بعرض كامل */
+      .btn, .lang{
+        width:100%;
+        justify-content:center;
+      }
+
+      .lang{
+        gap:8px;
+      }
+
+      .toggle{
+        flex:1;
+        text-align:center;
+      }
+
+      .cta{
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .cta .btn{ width: 100%; }
+
+      .hero{ padding: 22px 0 6px; }
+      h1{ font-size: 28px; line-height: 1.25; }
+      .sub{ font-size: 14px; }
+
+      .stats{ grid-template-columns: 1fr; }
+      .grid3{ grid-template-columns: 1fr; }
+      .contact{ grid-template-columns: 1fr; }
+
+      .to-top{ left: 12px; bottom: 12px; padding: 9px 11px; }
+    }
+
+    @media (max-width: 360px){
+      h1{ font-size: 24px; }
+      .chip{ font-size: 11px; }
+      .btn{ font-size: 13px; padding: 10px 12px; }
     }
   </style>
 </head>
@@ -255,39 +355,49 @@
 
   <div class="nav">
     <div class="nav-inner">
-      <div class="brand">
+
+      <a class="brand" href="#top" aria-label="Information Origin Home">
         <div class="logo">
-          <!-- ارفع شعارك إلى: assets/logo.png -->
+          <!-- ضع شعارك هنا: assets/logo.png -->
           <img src="assets/logo.png" alt="Information Origin Logo" />
         </div>
         <div>
           <div>Information Origin</div>
-          <small>أصل المعلومات</small>
+          <small class="lang-ar block">أصل المعلومات</small>
+          <small class="lang-en block">Information Origin</small>
         </div>
-      </div>
+      </a>
 
-      <div class="links">
-        <a class="chip" href="#about"><span class="lang-ar">من نحن</span><span class="lang-en" style="display:none">About</span></a>
-        <a class="chip" href="#services"><span class="lang-ar">الخدمات</span><span class="lang-en" style="display:none">Services</span></a>
-        <a class="chip" href="#value"><span class="lang-ar">لماذا نحن</span><span class="lang-en" style="display:none">Why Us</span></a>
-        <a class="chip" href="#contact"><span class="lang-ar">التواصل</span><span class="lang-en" style="display:none">Contact</span></a>
+      <div class="nav-actions">
+        <div class="links">
+          <a class="chip" href="#about"><span class="lang-ar">من نحن</span><span class="lang-en">About</span></a>
+          <a class="chip" href="#services"><span class="lang-ar">الخدمات</span><span class="lang-en">Services</span></a>
+          <a class="chip" href="#value"><span class="lang-ar">لماذا نحن</span><span class="lang-en">Why Us</span></a>
+          <a class="chip" href="#contact"><span class="lang-ar">التواصل</span><span class="lang-en">Contact</span></a>
+        </div>
 
-        <a class="btn" id="linkedinBtn" href="https://www.linkedin.com" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="btn" id="linkedinBtn" href="https://www.linkedin.com" target="_blank" rel="noopener">
+          <span class="lang-ar">LinkedIn</span><span class="lang-en">LinkedIn</span>
+        </a>
 
-        <div class="lang">
+        <div class="lang" aria-label="Language switcher">
           <button class="toggle active" id="btnAr" type="button">AR</button>
           <button class="toggle" id="btnEn" type="button">EN</button>
         </div>
       </div>
+
     </div>
   </div>
 
   <div class="container hero" id="top">
     <div class="hero-grid">
       <div class="panel">
-        <div class="kicker"><span class="lang-ar">حلول تقنية • تحول رقمي • أتمتة</span><span class="lang-en" style="display:none">Tech • Digital Transformation • Automation</span></div>
+        <div class="kicker">
+          <span class="lang-ar">حلول تقنية • تحول رقمي • أتمتة</span>
+          <span class="lang-en">Tech • Digital Transformation • Automation</span>
+        </div>
 
-        <div class="lang-ar">
+        <div class="lang-ar block">
           <h1>نُحوّل الإجراءات إلى خدمات رقمية مؤتمتة</h1>
           <p class="sub">
             <b>Information Origin (أصل المعلومات)</b> مؤسسة تقنية تقدم حلولًا متكاملة في التحول الرقمي،
@@ -295,7 +405,7 @@
           </p>
         </div>
 
-        <div class="lang-en" style="display:none; text-align:left">
+        <div class="lang-en block">
           <h1>We turn processes into automated digital services</h1>
           <p class="sub">
             <b>Information Origin</b> delivers end-to-end digital transformation solutions:
@@ -304,173 +414,161 @@
         </div>
 
         <div class="cta">
-          <a class="btn primary" href="#contact"><span class="lang-ar">تواصل معنا</span><span class="lang-en" style="display:none">Contact us</span></a>
-          <a class="btn" href="#services"><span class="lang-ar">استعرض الخدمات</span><span class="lang-en" style="display:none">View services</span></a>
+          <a class="btn primary" href="#contact">
+            <span class="lang-ar">تواصل معنا</span><span class="lang-en">Contact us</span>
+          </a>
+          <a class="btn" href="#services">
+            <span class="lang-ar">استعرض الخدمات</span><span class="lang-en">View services</span>
+          </a>
         </div>
 
         <div class="stats">
           <div class="stat">
-            <b><span class="lang-ar">تحول رقمي</span><span class="lang-en" style="display:none">Digital Transformation</span></b>
-            <span><span class="lang-ar">أتمتة إجراءات ورفع الكفاءة</span><span class="lang-en" style="display:none">Automate workflows and improve efficiency</span></span>
+            <b><span class="lang-ar">تحول رقمي</span><span class="lang-en">Digital Transformation</span></b>
+            <span><span class="lang-ar">أتمتة إجراءات ورفع الكفاءة</span><span class="lang-en">Automate workflows and improve efficiency</span></span>
           </div>
           <div class="stat">
-            <b><span class="lang-ar">تكامل (API)</span><span class="lang-en" style="display:none">API Integrations</span></b>
-            <span><span class="lang-ar">ربط الأنظمة وتبادل البيانات</span><span class="lang-en" style="display:none">Connect systems and exchange data</span></span>
+            <b><span class="lang-ar">تكامل (API)</span><span class="lang-en">API Integrations</span></b>
+            <span><span class="lang-ar">ربط الأنظمة وتبادل البيانات</span><span class="lang-en">Connect systems and exchange data</span></span>
           </div>
         </div>
       </div>
 
       <div class="panel">
         <div class="section-title" style="margin-top:0">
-          <h2><span class="lang-ar">ماذا نقدم؟</span><span class="lang-en" style="display:none">What we do</span></h2>
-          <p><span class="lang-ar">مختصر سريع</span><span class="lang-en" style="display:none">Quick overview</span></p>
+          <h2><span class="lang-ar">ماذا نقدم؟</span><span class="lang-en">What we do</span></h2>
+          <p><span class="lang-ar">مختصر سريع</span><span class="lang-en">Quick overview</span></p>
         </div>
 
         <ul class="list">
-          <li class="li"><span class="dot"></span><div><b><span class="lang-ar">تطوير الأنظمة والبوابات</span><span class="lang-en" style="display:none">Systems & Portals</span></b><div class="muted"><span class="lang-ar">تجارب استخدام حديثة، قابلة للتوسع</span><span class="lang-en" style="display:none">Modern UX, scalable delivery</span></div></div></li>
-          <li class="li"><span class="dot"></span><div><b><span class="lang-ar">أتمتة الإجراءات</span><span class="lang-en" style="display:none">Workflow Automation</span></b><div class="muted"><span class="lang-ar">تقليل الوقت والتكلفة وتحسين الجودة</span><span class="lang-en" style="display:none">Reduce time/cost and improve quality</span></div></div></li>
-          <li class="li"><span class="dot"></span><div><b><span class="lang-ar">تكامل الأنظمة</span><span class="lang-en" style="display:none">Integrations</span></b><div class="muted"><span class="lang-ar">API & Integrations وربط الخدمات</span><span class="lang-en" style="display:none">APIs and service integrations</span></div></div></li>
-          <li class="li"><span class="dot"></span><div><b><span class="lang-ar">إدارة الوثائق والبيانات</span><span class="lang-en" style="display:none">Data & Documents</span></b><div class="muted"><span class="lang-ar">حوكمة، تنظيم، وتتبع</span><span class="lang-en" style="display:none">Governance, organization, tracking</span></div></div></li>
+          <li class="li"><span class="dot"></span><div><b><span class="lang-ar">تطوير الأنظمة والبوابات</span><span class="lang-en">Systems & Portals</span></b><div class="muted"><span class="lang-ar">تجارب استخدام حديثة، قابلة للتوسع</span><span class="lang-en">Modern UX, scalable delivery</span></div></div></li>
+          <li class="li"><span class="dot"></span><div><b><span class="lang-ar">أتمتة الإجراءات</span><span class="lang-en">Workflow Automation</span></b><div class="muted"><span class="lang-ar">تقليل الوقت والتكلفة وتحسين الجودة</span><span class="lang-en">Reduce time/cost and improve quality</span></div></div></li>
+          <li class="li"><span class="dot"></span><div><b><span class="lang-ar">تكامل الأنظمة</span><span class="lang-en">Integrations</span></b><div class="muted"><span class="lang-ar">API & Integrations وربط الخدمات</span><span class="lang-en">APIs and service integrations</span></div></div></li>
+          <li class="li"><span class="dot"></span><div><b><span class="lang-ar">إدارة الوثائق والبيانات</span><span class="lang-en">Data & Documents</span></b><div class="muted"><span class="lang-ar">حوكمة، تنظيم، وتتبع</span><span class="lang-en">Governance, organization, tracking</span></div></div></li>
         </ul>
-
-        <div class="section-title" style="margin-top:18px">
-          <h2>Ready for a custom domain?</h2>
-          <p><span class="lang-ar">لاحقًا بسهولة</span><span class="lang-en" style="display:none">Easy later</span></p>
-        </div>
-        <p class="muted" style="margin:0">
-          <span class="lang-ar">يمكنك تشغيل الموقع الآن على GitHub Pages وربطه بدومين رسمي لاحقًا (مثل informationorigin.sa) عند الجاهزية.</span>
-          <span class="lang-en" style="display:none">Launch on GitHub Pages now and connect a custom domain later when ready.</span>
-        </p>
       </div>
     </div>
   </div>
 
   <div class="container section" id="about">
     <div class="section-title">
-      <h2><span class="lang-ar">من نحن</span><span class="lang-en" style="display:none">About us</span></h2>
-      <p><span class="lang-ar">نبذة مختصرة</span><span class="lang-en" style="display:none">Short intro</span></p>
+      <h2><span class="lang-ar">من نحن</span><span class="lang-en">About us</span></h2>
+      <p><span class="lang-ar">نبذة مختصرة</span><span class="lang-en">Short intro</span></p>
     </div>
     <div class="panel">
-      <div class="lang-ar">
-        <p style="margin:0">
-          مؤسسة <b>أصل المعلومات</b> تقدم حلولًا تقنية متكاملة لدعم التحول الرقمي،
-          من أتمتة الإجراءات إلى بناء الأنظمة والبوابات، مع الالتزام بأفضل الممارسات في الأمن السيبراني وتجربة المستفيد.
-        </p>
-      </div>
-      <div class="lang-en" style="display:none; text-align:left">
-        <p style="margin:0">
-          <b>Information Origin</b> provides integrated technology services to accelerate digital transformation—
-          from workflow automation to system & portal delivery—aligned with cybersecurity best practices and user-centric design.
-        </p>
-      </div>
+      <p class="lang-ar block" style="margin:0">
+        مؤسسة <b>أصل المعلومات</b> تقدم حلولًا تقنية متكاملة لدعم التحول الرقمي،
+        من أتمتة الإجراءات إلى بناء الأنظمة والبوابات، مع الالتزام بأفضل الممارسات في الأمن السيبراني وتجربة المستفيد.
+      </p>
+
+      <p class="lang-en block" style="margin:0">
+        <b>Information Origin</b> provides integrated technology services to accelerate digital transformation—
+        from workflow automation to system & portal delivery—aligned with cybersecurity best practices and user-centric design.
+      </p>
     </div>
   </div>
 
   <div class="container section" id="services">
     <div class="section-title">
-      <h2><span class="lang-ar">الخدمات</span><span class="lang-en" style="display:none">Services</span></h2>
-      <p><span class="lang-ar">ماذا نستطيع أن نقدم</span><span class="lang-en" style="display:none">What we deliver</span></p>
+      <h2><span class="lang-ar">الخدمات</span><span class="lang-en">Services</span></h2>
+      <p><span class="lang-ar">ماذا نستطيع أن نقدم</span><span class="lang-en">What we deliver</span></p>
     </div>
 
     <div class="grid3">
       <div class="card">
-        <h3><span class="lang-ar">التحول الرقمي</span><span class="lang-en" style="display:none">Digital Transformation</span></h3>
-        <p><span class="lang-ar">تصميم خارطة طريق، تحويل الخدمات، ورفع كفاءة التشغيل.</span><span class="lang-en" style="display:none">Roadmaps, service digitization, and operational efficiency.</span></p>
+        <h3><span class="lang-ar">التحول الرقمي</span><span class="lang-en">Digital Transformation</span></h3>
+        <p><span class="lang-ar">تصميم خارطة طريق، تحويل الخدمات، ورفع كفاءة التشغيل.</span><span class="lang-en">Roadmaps, service digitization, and operational efficiency.</span></p>
       </div>
       <div class="card">
-        <h3><span class="lang-ar">أتمتة الإجراءات</span><span class="lang-en" style="display:none">Workflow Automation</span></h3>
-        <p><span class="lang-ar">نمذجة العمليات، موافقات إلكترونية، تقارير ولوحات متابعة.</span><span class="lang-en" style="display:none">Process modeling, e-approvals, reports and dashboards.</span></p>
+        <h3><span class="lang-ar">أتمتة الإجراءات</span><span class="lang-en">Workflow Automation</span></h3>
+        <p><span class="lang-ar">نمذجة العمليات، موافقات إلكترونية، تقارير ولوحات متابعة.</span><span class="lang-en">Process modeling, e-approvals, reports and dashboards.</span></p>
       </div>
       <div class="card">
-        <h3><span class="lang-ar">تطوير الأنظمة والبوابات</span><span class="lang-en" style="display:none">Systems & Portals</span></h3>
-        <p><span class="lang-ar">بوابات وخدمات إلكترونية حديثة، آمنة، وقابلة للتوسع.</span><span class="lang-en" style="display:none">Modern, secure, scalable portals and digital services.</span></p>
+        <h3><span class="lang-ar">تطوير الأنظمة والبوابات</span><span class="lang-en">Systems & Portals</span></h3>
+        <p><span class="lang-ar">بوابات وخدمات إلكترونية حديثة، آمنة، وقابلة للتوسع.</span><span class="lang-en">Modern, secure, scalable portals and digital services.</span></p>
       </div>
       <div class="card">
-        <h3><span class="lang-ar">تكامل الأنظمة (API)</span><span class="lang-en" style="display:none">API Integrations</span></h3>
-        <p><span class="lang-ar">ربط الأنظمة، تبادل البيانات، وتكامل مع الخدمات الحكومية.</span><span class="lang-en" style="display:none">System connectivity, data exchange, and government integrations.</span></p>
+        <h3><span class="lang-ar">تكامل الأنظمة (API)</span><span class="lang-en">API Integrations</span></h3>
+        <p><span class="lang-ar">ربط الأنظمة، تبادل البيانات، وتكامل مع الخدمات الحكومية.</span><span class="lang-en">System connectivity, data exchange, and government integrations.</span></p>
       </div>
       <div class="card">
-        <h3><span class="lang-ar">إدارة الوثائق والبيانات</span><span class="lang-en" style="display:none">Data & Documents</span></h3>
-        <p><span class="lang-ar">أرشفة إلكترونية، تصنيف، تتبع، وحوكمة بيانات.</span><span class="lang-en" style="display:none">Digital archiving, classification, tracking, and governance.</span></p>
+        <h3><span class="lang-ar">إدارة الوثائق والبيانات</span><span class="lang-en">Data & Documents</span></h3>
+        <p><span class="lang-ar">أرشفة إلكترونية، تصنيف، تتبع، وحوكمة بيانات.</span><span class="lang-en">Digital archiving, classification, tracking, and governance.</span></p>
       </div>
       <div class="card">
-        <h3><span class="lang-ar">استشارات تقنية المعلومات</span><span class="lang-en" style="display:none">IT Consulting</span></h3>
-        <p><span class="lang-ar">تقييمات تقنية، أمن سيبراني، ومتطلبات وسياسات تشغيل.</span><span class="lang-en" style="display:none">Assessments, cybersecurity, and operational policies.</span></p>
+        <h3><span class="lang-ar">استشارات تقنية المعلومات</span><span class="lang-en">IT Consulting</span></h3>
+        <p><span class="lang-ar">تقييمات تقنية، أمن سيبراني، ومتطلبات وسياسات تشغيل.</span><span class="lang-en">Assessments, cybersecurity, and operational policies.</span></p>
       </div>
     </div>
   </div>
 
   <div class="container section" id="value">
     <div class="section-title">
-      <h2><span class="lang-ar">لماذا Information Origin؟</span><span class="lang-en" style="display:none">Why Information Origin?</span></h2>
-      <p><span class="lang-ar">قيم نركز عليها</span><span class="lang-en" style="display:none">Our values</span></p>
+      <h2><span class="lang-ar">لماذا Information Origin؟</span><span class="lang-en">Why Information Origin?</span></h2>
+      <p><span class="lang-ar">قيم نركز عليها</span><span class="lang-en">Our values</span></p>
     </div>
 
     <div class="panel">
       <ul class="list">
-        <li class="li"><span class="dot"></span><div><b><span class="lang-ar">حلول عملية قابلة للتوسع</span><span class="lang-en" style="display:none">Scalable solutions</span></b><div class="muted"><span class="lang-ar">نُسلم حلولًا قابلة للنمو والتطوير.</span><span class="lang-en" style="display:none">Built to grow and evolve.</span></div></div></li>
-        <li class="li"><span class="dot"></span><div><b><span class="lang-ar">التزام بالمعايير</span><span class="lang-en" style="display:none">Standards & best practices</span></b><div class="muted"><span class="lang-ar">نلتزم بأفضل الممارسات والمعايير الوطنية قدر الإمكان.</span><span class="lang-en" style="display:none">Aligned with best practices and standards.</span></div></div></li>
-        <li class="li"><span class="dot"></span><div><b><span class="lang-ar">تجربة مستفيد</span><span class="lang-en" style="display:none">User-centric design</span></b><div class="muted"><span class="lang-ar">تصميم يركز على المستخدم وسهولة الاستخدام.</span><span class="lang-en" style="display:none">Designed for clarity and ease.</span></div></div></li>
-        <li class="li"><span class="dot"></span><div><b><span class="lang-ar">شريك تقني موثوق</span><span class="lang-en" style="display:none">Trusted partner</span></b><div class="muted"><span class="lang-ar">وضوح، توثيق، ومخرجات قابلة للقياس.</span><span class="lang-en" style="display:none">Transparency, documentation, measurable outcomes.</span></div></div></li>
+        <li class="li"><span class="dot"></span><div><b><span class="lang-ar">حلول عملية قابلة للتوسع</span><span class="lang-en">Scalable solutions</span></b><div class="muted"><span class="lang-ar">نُسلم حلولًا قابلة للنمو والتطوير.</span><span class="lang-en">Built to grow and evolve.</span></div></div></li>
+        <li class="li"><span class="dot"></span><div><b><span class="lang-ar">التزام بالمعايير</span><span class="lang-en">Standards & best practices</span></b><div class="muted"><span class="lang-ar">نلتزم بأفضل الممارسات والمعايير الوطنية قدر الإمكان.</span><span class="lang-en">Aligned with best practices and standards.</span></div></div></li>
+        <li class="li"><span class="dot"></span><div><b><span class="lang-ar">تجربة مستفيد</span><span class="lang-en">User-centric design</span></b><div class="muted"><span class="lang-ar">تصميم يركز على المستخدم وسهولة الاستخدام.</span><span class="lang-en">Designed for clarity and ease.</span></div></div></li>
+        <li class="li"><span class="dot"></span><div><b><span class="lang-ar">شريك تقني موثوق</span><span class="lang-en">Trusted partner</span></b><div class="muted"><span class="lang-ar">وضوح، توثيق، ومخرجات قابلة للقياس.</span><span class="lang-en">Transparency, documentation, measurable outcomes.</span></div></div></li>
       </ul>
     </div>
   </div>
 
   <div class="container section" id="contact">
     <div class="section-title">
-      <h2><span class="lang-ar">التواصل</span><span class="lang-en" style="display:none">Contact</span></h2>
-      <p><span class="lang-ar">ضع بياناتك هنا</span><span class="lang-en" style="display:none">Add your details</span></p>
+      <h2><span class="lang-ar">التواصل</span><span class="lang-en">Contact</span></h2>
+      <p><span class="lang-ar">بيانات التواصل</span><span class="lang-en">Add your details</span></p>
     </div>
 
     <div class="contact">
       <div class="field">
-        <b><span class="lang-ar">البريد الإلكتروني</span><span class="lang-en" style="display:none">Email</span></b>
-        <div class="muted"><span class="lang-ar">ضع بريدك الرسمي هنا</span><span class="lang-en" style="display:none">Add your official email</span></div>
+        <b><span class="lang-ar">البريد الإلكتروني</span><span class="lang-en">Email</span></b>
         <div style="margin-top:8px">
-          <a id="emailLink" href="mailto:info@informationorigin.sa">info@informationorigin.sa</a>
+          <a id="emailLink" href="mailto:origininfo.25@gmail.com">origininfo.25@gmail.com</a>
         </div>
       </div>
 
       <div class="field">
         <b>LinkedIn</b>
-        <div class="muted"><span class="lang-ar">رابط صفحة المؤسسة على لينكدإن</span><span class="lang-en" style="display:none">Company page link</span></div>
         <div style="margin-top:8px">
-          <a id="linkedinLink" href="https://www.linkedin.com" target="_blank" rel="noopener">Open LinkedIn</a>
+          <a id="linkedinLink" href="https://www.linkedin.com" target="_blank" rel="noopener">
+            <span class="lang-ar">فتح لينكدإن</span><span class="lang-en">Open LinkedIn</span>
+          </a>
         </div>
       </div>
 
       <div class="field">
-        <b><span class="lang-ar">الموقع</span><span class="lang-en" style="display:none">Location</span></b>
+        <b><span class="lang-ar">الموقع</span><span class="lang-en">Location</span></b>
         <div class="muted">Saudi Arabia</div>
-        <div style="margin-top:8px"><span class="lang-ar">الرياض – المملكة العربية السعودية</span><span class="lang-en" style="display:none">Riyadh, Saudi Arabia</span></div>
+        <div style="margin-top:8px">
+          <span class="lang-ar">الرياض – المملكة العربية السعودية</span>
+          <span class="lang-en">Riyadh, Saudi Arabia</span>
+        </div>
       </div>
 
       <div class="field">
-        <b><span class="lang-ar">ساعات العمل</span><span class="lang-en" style="display:none">Working hours</span></b>
-        <div class="muted"><span class="lang-ar">حسب الاتفاق</span><span class="lang-en" style="display:none">By arrangement</span></div>
-        <div style="margin-top:8px"><span class="lang-ar">الأحد – الخميس</span><span class="lang-en" style="display:none">Sun – Thu</span></div>
-      </div>
-    </div>
-
-    <div class="panel" style="margin-top:14px">
-      <div class="lang-ar">
-        <b>مهم:</b> عدّل البريد ورابط LinkedIn في الكود (أسفل الصفحة) لتكون بياناتك الصحيحة، وتأكد من رفع الشعار إلى assets/logo.png
-      </div>
-      <div class="lang-en" style="display:none; text-align:left">
-        <b>Note:</b> Update the email and LinkedIn URL in the script below, and upload your logo to assets/logo.png
+        <b><span class="lang-ar">ساعات العمل</span><span class="lang-en">Working hours</span></b>
+        <div style="margin-top:8px">
+          <span class="lang-ar">السبت – الخميس</span>
+          <span class="lang-en">Sat – Thu</span>
+        </div>
       </div>
     </div>
   </div>
 
   <div class="container footer">
-    © <span id="year"></span> Information Origin — All Rights Reserved.
+    © <span id="year"></span> <span class="lang-ar">Information Origin — جميع الحقوق محفوظة.</span><span class="lang-en">Information Origin — All Rights Reserved.</span>
   </div>
 
   <a class="to-top" href="#top" aria-label="Back to top">↑</a>
 
   <script>
     // ====== ضع بياناتك هنا ======
-    const CONTACT_EMAIL = "info@informationorigin.sa";
+    const CONTACT_EMAIL = "origininfo.25@gmail.com"; // غيّرها لاحقًا إن رغبت
     const LINKEDIN_URL  = "ضع-رابط-صفحة-لينكدإن-هنا"; // مثال: https://www.linkedin.com/company/information-origin
 
     // Apply contact info
@@ -480,18 +578,20 @@
 
     const linkedinBtn  = document.getElementById("linkedinBtn");
     const linkedinLink = document.getElementById("linkedinLink");
+
     if (LINKEDIN_URL && !LINKEDIN_URL.includes("ضع-رابط")) {
       linkedinBtn.href = LINKEDIN_URL;
       linkedinLink.href = LINKEDIN_URL;
-      linkedinLink.textContent = "Open LinkedIn";
     } else {
-      linkedinLink.textContent = "Add your LinkedIn Page URL";
+      // keep default href but show hint text
+      linkedinLink.href = "https://www.linkedin.com";
+      linkedinBtn.href = "https://www.linkedin.com";
     }
 
     // Year
     document.getElementById("year").textContent = new Date().getFullYear();
 
-    // Language toggle (global)
+    // Language toggle (global + persist)
     const btnAr = document.getElementById("btnAr");
     const btnEn = document.getElementById("btnEn");
 
@@ -506,14 +606,18 @@
 
       document.documentElement.lang = isAr ? "ar" : "en";
       document.documentElement.dir  = isAr ? "rtl" : "ltr";
+
+      // Persist
+      localStorage.setItem("site_lang", isAr ? "ar" : "en");
     }
 
     btnAr.addEventListener("click", () => setLang("ar"));
     btnEn.addEventListener("click", () => setLang("en"));
 
-    // default
-    setLang("ar");
+    // default from storage
+    const saved = localStorage.getItem("site_lang");
+    setLang(saved === "en" ? "en" : "ar");
   </script>
 
 </body>
-  </html>
+                                                                                                                </html>
